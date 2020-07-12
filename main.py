@@ -17,7 +17,7 @@ app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 
 @app.post("/user/", response_model=SchemaUser)
-async def create_user(user: SchemaUser):
+def create_user(user: SchemaUser):
     db_user = ModelUser(
         first_name=user.first_name, last_name=user.last_name, age=user.age
     )
